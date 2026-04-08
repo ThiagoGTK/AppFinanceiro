@@ -12,12 +12,16 @@ import { View, Text } from 'react-native';
 // Inicialização do banco de dados
 import { initDatabase } from './src/database/database';
 
+// Hooks customizados
+import { useUser } from './src/hooks/useUser';
+
 // Telas do app
 import HomeScreen from './src/screens/HomeScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 import AddScreen from './src/screens/AddScreen';
 import InsightsScreen from './src/screens/InsightsScreen';
 import GoalsScreen from './src/screens/GoalsScreen';
+import OnboardingScreen from './src/screens/OnboardingScreen';
 
 // ------------------------------------------------------------
 // CRIAÇÃO DO NAVEGADOR DE ABAS
@@ -45,10 +49,10 @@ const tabIcon = (routeName: string, focused: boolean): string => {
 // ============================================================
 export default function App() {
 
-  // ------------------------------------------------------------
-  // INICIALIZA O BANCO AO ABRIR O APP
-  // Cria as tabelas se ainda não existirem
-  // ------------------------------------------------------------
+  // Gerencia dados do usuário (nome)
+  const { user, isLoading, setUserName, hasUser } = useUser();
+
+  // Inicializa o banco ao abrir o app
   useEffect(() => {
     try {
       initDatabase();
@@ -56,13 +60,42 @@ export default function App() {
     } catch (error) {
       console.error('❌ Erro ao inicializar banco:', error);
     }
-  }, []); // Array vazio = executa só uma vez ao montar
+  }, []);
 
+  // Enquanto carrega os dados do usuário, mostra nada
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
+        <StatusBar style="light" />
+      </View>
+    );
+  }
+
+  // Se não tem usuário, mostra tela de onboarding
+  if (!hasUser) {
+    return (
+      <>
+        <StatusBar style="dark" />
+        <OnboardingScreen onUserNameSet={setUserName} />
+      </>
+    );
+  }
+
+  // Se tem usuário, mostra o app principal com navegação
   return (
     <NavigationContainer>
       <StatusBar style="light" />
+      <AppNavigator />
+    </NavigationContainer>
+  );
+}
 
-      <Tab.Navigator
+// ============================================================
+// NAVEGADOR PRINCIPAL (5 ABAS)
+// ============================================================
+function AppNavigator() {
+  return (
+    <Tab.Navigator
         screenOptions={({ route }) => ({
           // -- Ícone de cada aba
           tabBarIcon: ({ focused }) => (
@@ -135,6 +168,5 @@ export default function App() {
           options={{ tabBarLabel: 'Metas' }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
+    );
+  }
