@@ -2,6 +2,15 @@
 
 Um aplicativo mobile completo de gestão financeira pessoal desenvolvido com **React Native, Expo e TypeScript**. Gerencie suas receitas, despesas, acompanhe metas e analise seus gastos com gráficos inteligentes - tudo rodando localmente no seu iPhone com SQLite.
 
+## ✨ O Que há de Novo? (v1.0.1 - Abril 2026)
+
+**🔧 Atualizações Recentes:**
+- ✅ **Corrigido**: Compatibilidade com expo-sqlite v16+ (migração para async/await)
+- ✅ **Otimizado**: Todas as operações de banco de dados agora são assincronizadas
+- ✅ **Resolvido**: 149 erros de compilação TypeScript
+- ✅ **Melhorado**: Performance no carregamento de dados
+- 📦 **Dependências**: Todas atualizadas para versão compatível com Expo 54.0.33
+
 ## 🎯 Funcionalidades Principais
 
 - ✅ **5 Abas Navegáveis** com navegação inferior
@@ -58,18 +67,49 @@ Frontend:
   • React Hooks (useCallback, useState, useEffect, useFocusEffect)
 
 Estado & Dados:
-  • SQLite (expo-sqlite 16.0.10) - Banco local
-  • Custom Hooks (useTransactions)
+  • SQLite (expo-sqlite 16.0.10) - Banco local com suporte async/await
+  • Custom Hooks (useTransactions, useUser)
+  • AsyncStorage 2.2.0 para dados leves
 
 UI & Styling:
   • React Native StyleSheet
   • @expo/vector-icons para ícones
+  • react-native-safe-area-context ~5.6.0
+  • react-native-screens ~4.16.0
+  • react-native-svg 15.12.1 para gráficos
   • Emojis para visual amigável
-  • Safe Area Context para notch/home bar
 
 Utilitários:
   • date-fns 4.1.0 - Manipulação de datas
-  • AsyncStorage 2.2.0 (preparado para futuro)
+  •🏗️ Arquitetura & Padrões
+
+### Database Layer (Async/Await)
+```typescript
+// Todas as operações de banco são assincronizadas
+export const getMonthlySummary = async (month, year) => {
+  const incomeRow = await db.getFirstAsync(...);
+  const expenseRow = await db.getFirstAsync(...);
+  return { totalIncome, totalExpense, balance, ... };
+};
+```
+
+### Custom Hooks Pattern
+```typescript
+// useTransactions centraliza lógica de estado
+const { 
+  transactions, 
+  addTransaction, 
+  removeTransaction, 
+  refresh 
+} = useTransactions();
+```
+
+### Type Safety
+- Todas as entidades tipadas com TypeScript
+- Validação em tempo de compilação
+- Sem `any` no codebase
+
+##  AsyncStorage 2.2.0 (preparado para futuro)
 ```
 
 ## 📋 Estrutura do Projeto
