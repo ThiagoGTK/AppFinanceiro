@@ -13,6 +13,7 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from 'react-native';
 
 interface OnboardingScreenProps {
@@ -25,7 +26,9 @@ export default function OnboardingScreen({ onUserNameSet }: OnboardingScreenProp
 
   const handleContinue = async () => {
     if (name.trim().length === 0) {
-      alert('🚨 Por favor, digite seu nome!');
+      Alert.alert('Ops!', '🚨 Por favor, digite seu nome!', [
+        { text: 'OK', onPress: () => {} }
+      ]);
       return;
     }
 
