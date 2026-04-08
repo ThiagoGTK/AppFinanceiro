@@ -408,7 +408,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 22,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
   headerMonth: {
@@ -423,7 +423,7 @@ const styles = StyleSheet.create({
 
   sectionTitle: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
     marginBottom: 12,
     marginTop: 8,
@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
   },
   summaryValue: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: 500,
   },
   summarySubtext: {
     fontSize: 10,
@@ -479,7 +479,7 @@ const styles = StyleSheet.create({
   insightContent: { flex: 1 },
   insightTitle: {
     fontSize: 12,
-    fontWeight: '500',
+    fontWeight: 500,
     marginBottom: 4,
   },
   insightDesc: {
@@ -507,7 +507,7 @@ const styles = StyleSheet.create({
   },
   projectionValue: {
     fontSize: 22,
-    fontWeight: '500',
+    fontWeight: 500,
   },
   projectionBars: {
     flexDirection: 'row',

@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 22,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
 
@@ -369,7 +369,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     color: '#6b7280',
-    fontWeight: '500',
+    fontWeight: 500,
     marginBottom: 10,
   },
 
@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
   },
   typeBtnText: {
     fontSize: 13,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#6b7280',
   },
   typeBtnExpenseActive: {
@@ -445,7 +445,7 @@ const styles = StyleSheet.create({
   },
   catBtnTextActive: {
     color: '#4f46e5',
-    fontWeight: '500',
+    fontWeight: 500,
   },
 
   // -- Métodos de pagamento
@@ -472,7 +472,7 @@ const styles = StyleSheet.create({
   },
   methodBtnTextActive: {
     color: '#4f46e5',
-    fontWeight: '500',
+    fontWeight: 500,
   },
 
   // -- Importar extrato
@@ -486,7 +486,7 @@ const styles = StyleSheet.create({
   },
   importTitle: {
     fontSize: 13,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#0369a1',
     marginBottom: 6,
   },
@@ -505,7 +505,7 @@ const styles = StyleSheet.create({
   importBtnText: {
     fontSize: 12,
     color: '#ffffff',
-    fontWeight: '500',
+    fontWeight: 500,
   },
 
   // -- Botão salvar
@@ -521,7 +521,7 @@ const styles = StyleSheet.create({
   },
   submitBtnText: {
     fontSize: 15,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
 });

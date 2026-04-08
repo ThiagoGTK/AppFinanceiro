@@ -88,7 +88,7 @@ export default function App() {
           // -- Estilo do label
           tabBarLabelStyle: {
             fontSize: 10,
-            fontWeight: '500',
+            fontWeight: 500,
             marginTop: 2,
           },
 

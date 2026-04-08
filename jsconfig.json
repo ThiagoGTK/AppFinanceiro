@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2020"]
+  },
+  "include": ["index.ts", "App.tsx", "src/**/*"],
+  "exclude": ["node_modules", "dist", "build"]
+}

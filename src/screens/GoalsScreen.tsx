@@ -490,7 +490,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 22,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
 
@@ -520,7 +520,7 @@ const styles = StyleSheet.create({
   },
   summaryValue: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
   },
 
@@ -551,7 +551,7 @@ const styles = StyleSheet.create({
   },
   goalName: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
     marginBottom: 2,
   },
@@ -594,7 +594,7 @@ const styles = StyleSheet.create({
   },
   goalFooterValue: {
     fontSize: 12,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
   },
   goalSpacer: {
@@ -622,7 +622,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 15,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#374151',
     marginBottom: 4,
   },
@@ -690,7 +690,7 @@ const styles = StyleSheet.create({
   modalLabel: {
     fontSize: 12,
     color: '#6b7280',
-    fontWeight: '500',
+    fontWeight: 500,
     marginBottom: 8,
   },
   modalInput: {
@@ -738,7 +738,7 @@ const styles = StyleSheet.create({
   previewLabel: {
     fontSize: 11,
     color: '#0284c7',
-    fontWeight: '500',
+    fontWeight: 500,
     marginBottom: 8,
   },
   previewGoal: {
@@ -751,7 +751,7 @@ const styles = StyleSheet.create({
   },
   previewName: {
     fontSize: 13,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#0369a1',
   },
   previewAmount: {
@@ -776,7 +776,7 @@ const styles = StyleSheet.create({
   },
   modalBtnCancelText: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#6b7280',
   },
   modalBtnSubmit: {
@@ -784,7 +784,7 @@ const styles = StyleSheet.create({
   },
   modalBtnText: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
 });

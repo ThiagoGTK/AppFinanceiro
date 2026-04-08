@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
   },
   appName: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
   avatar: {
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     fontSize: 13,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
 
@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
   monthLabel: {
     fontSize: 14,
     color: '#ffffff',
-    fontWeight: '500',
+    fontWeight: 500,
   },
 
   // -- Card de saldo
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
   },
   balanceValue: {
     fontSize: 28,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
     marginBottom: 12,
   },
@@ -367,7 +367,7 @@ const styles = StyleSheet.create({
   },
   balanceItemValue: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
 
@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 14,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
   },
 
@@ -422,7 +422,7 @@ const styles = StyleSheet.create({
   },
   categoryIcon: { fontSize: 18, marginBottom: 4 },
   categoryName: { fontSize: 9, color: '#6b7280', textAlign: 'center' },
-  categoryAmount: { fontSize: 10, fontWeight: '500', color: '#1f2937' },
+  categoryAmount: { fontSize: 10, fontWeight: 500, color: '#1f2937' },
 
   // -- Transações
   txItem: {
@@ -445,10 +445,10 @@ const styles = StyleSheet.create({
   },
   txIconText: { fontSize: 18 },
   txInfo: { flex: 1 },
-  txName: { fontSize: 13, fontWeight: '500', color: '#1f2937' },
+  txName: { fontSize: 13, fontWeight: 500, color: '#1f2937' },
   txCat: { fontSize: 11, color: '#9ca3af' },
   txDate: { fontSize: 10, color: '#d1d5db' },
-  txAmount: { fontSize: 14, fontWeight: '500' },
+  txAmount: { fontSize: 14, fontWeight: 500 },
 
   // -- Estado vazio
   emptyState: {
@@ -456,6 +456,6 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
   },
   emptyIcon: { fontSize: 40, marginBottom: 12 },
-  emptyText: { fontSize: 15, fontWeight: '500', color: '#374151' },
+  emptyText: { fontSize: 15, fontWeight: 500, color: '#374151' },
   emptySubtext: { fontSize: 13, color: '#9ca3af', marginTop: 4 },
 });

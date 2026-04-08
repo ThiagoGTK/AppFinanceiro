@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 22,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#ffffff',
   },
   headerMonth: {
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
   },
   metricValue: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
   },
   metricChange: {
@@ -389,7 +389,7 @@ const styles = StyleSheet.create({
   },
   chartTitle: {
     fontSize: 13,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
     marginBottom: 12,
   },
@@ -463,7 +463,7 @@ const styles = StyleSheet.create({
   },
   categoryBarValue: {
     fontSize: 11,
-    fontWeight: '500',
+    fontWeight: 500,
     color: '#1f2937',
   },
   categoryBarPct: {
