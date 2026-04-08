@@ -7,13 +7,22 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "description": "Seu assistente financeiro pessoal. Gerencie receitas, despesas, acompanhe metas e analise seus gastos com gráficos inteligentes. Todos os dados ficam salvos localmente no seu dispositivo.",
+    "primaryColor": "#4f46e5",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.thiagogtk.financeapp",
+      "buildNumber": "1",
+      "category": "FINANCE",
+      "infoPlist": {
+        "NSLocalNetworkUsageDescription": "FinanceApp precisa acessar recursos locais",
+        "NSBonjourServiceTypes": ["_http._tcp"]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,13 +30,18 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.thiagogtk.financeapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-sqlite"
-    ]
+    ],
+    "extra": {
+      "privacyUrl": "https://github.com/ThiagoGTK/AppFinanceiro/blob/master/PRIVACY.md",
+      "termsUrl": "https://github.com/ThiagoGTK/AppFinanceiro/blob/master/TERMS.md"
+    }
   }
 }

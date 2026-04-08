@@ -21,6 +21,7 @@ import DashboardScreen from './src/screens/DashboardScreen';
 import AddScreen from './src/screens/AddScreen';
 import InsightsScreen from './src/screens/InsightsScreen';
 import GoalsScreen from './src/screens/GoalsScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
 import OnboardingScreen from './src/screens/OnboardingScreen';
 
 // ------------------------------------------------------------
@@ -40,6 +41,7 @@ const tabIcon = (routeName: string, focused: boolean): string => {
     Add:       '⊕',
     Insights:  '💡',
     Goals:     '🎯',
+    Settings:  '⚙️',
   };
   return icons[routeName] ?? '●';
 };
@@ -166,6 +168,13 @@ function AppNavigator() {
           name="Goals"
           component={GoalsScreen}
           options={{ tabBarLabel: 'Metas' }}
+        />
+
+        {/* ---- ABA: CONFIGURAÇÕES ---- */}
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{ tabBarLabel: 'Configurações' }}
         />
       </Tab.Navigator>
     );

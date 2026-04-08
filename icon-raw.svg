@@ -1,0 +1,39 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="#4f46e5"/>
+  
+  <!-- Circle Background -->
+  <circle cx="512" cy="512" r="480" fill="#ffffff" opacity="0.1"/>
+  
+  <!-- Piggy Bank / Safe -->
+  <g transform="translate(512, 512)">
+    <!-- Main body (ellipse) -->
+    <ellipse cx="0" cy="0" rx="200" ry="180" fill="#ffffff"/>
+    
+    <!-- Snout (small circle) -->
+    <circle cx="-180" cy="-20" r="35" fill="#ffffff"/>
+    
+    <!-- Ear -->
+    <circle cx="120" cy="-150" r="40" fill="#ffffff"/>
+    
+    <!-- Eye -->
+    <circle cx="80" cy="-80" r="20" fill="#4f46e5"/>
+    
+    <!-- Coin slot -->
+    <rect x="-30" y="-200" width="60" height="15" rx="7" fill="#4f46e5"/>
+    
+    <!-- Legs -->
+    <rect x="-120" y="150" width="40" height="80" rx="20" fill="#ffffff"/>
+    <rect x="-20" y="150" width="40" height="80" rx="20" fill="#ffffff"/>
+    <rect x="80" y="150" width="40" height="80" rx="20" fill="#ffffff"/>
+    <rect x="180" y="150" width="40" height="80" rx="20" fill="#ffffff"/>
+    
+    <!-- Highlight -->
+    <ellipse cx="-80" cy="-60" rx="60" ry="80" fill="#ffffff" opacity="0.3"/>
+  </g>
+  
+  <!-- Money Symbol (optional, for extra clarity) -->
+  <g opacity="0.2">
+    <text x="512" y="900" font-size="120" fill="#ffffff" text-anchor="middle" font-weight="bold">💰</text>
+  </g>
+</svg>
