@@ -89,23 +89,23 @@ export const useTransactions = (): UseTransactionsReturn => {
   // useCallback evita recriação desnecessária da função
   // Chamado sempre que mês/ano mudam ou após inserir/deletar
   // ------------------------------------------------------------
-  const loadData = useCallback(() => {
+  const loadData = useCallback(async () => {
     setIsLoading(true);
     try {
       // Busca transações do mês selecionado
-      const txs = getTransactionsByMonth(currentMonth, currentYear);
+      const txs = await getTransactionsByMonth(currentMonth, currentYear);
       setTransactions(txs);
 
       // Busca as 5 transações mais recentes para a Home
-      const recent = getRecentTransactions(5);
+      const recent = await getRecentTransactions(5);
       setRecentTransactions(recent);
 
       // Calcula o resumo financeiro do mês
-      const monthSummary = getMonthlySummary(currentMonth, currentYear);
+      const monthSummary = await getMonthlySummary(currentMonth, currentYear);
       setSummary(monthSummary);
 
       // Histórico dos últimos 6 meses para o gráfico
-      const history = getMonthlyHistory(6);
+      const history = await getMonthlyHistory(6);
       setMonthlyHistory(history);
 
     } catch (error) {
@@ -127,8 +127,8 @@ export const useTransactions = (): UseTransactionsReturn => {
   const addTransaction = useCallback(
     async (data: Omit<Transaction, 'id' | 'createdAt'>) => {
       try {
-        insertTransaction(data);
-        loadData(); // Atualiza a tela após inserir
+        await insertTransaction(data);
+        await loadData(); // Atualiza a tela após inserir
       } catch (error) {
         console.error('Erro ao adicionar transação:', error);
         throw error; // Propaga o erro para a tela tratar
@@ -144,8 +144,8 @@ export const useTransactions = (): UseTransactionsReturn => {
   const removeTransaction = useCallback(
     async (id: number) => {
       try {
-        deleteTransaction(id);
-        loadData();
+        await deleteTransaction(id);
+        await loadData();
       } catch (error) {
         console.error('Erro ao remover transação:', error);
         throw error;

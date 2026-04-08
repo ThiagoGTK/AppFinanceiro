@@ -50,12 +50,15 @@ export default function App() {
   // Cria as tabelas se ainda não existirem
   // ------------------------------------------------------------
   useEffect(() => {
-    try {
-      initDatabase();
-      console.log('✅ Banco de dados inicializado com sucesso');
-    } catch (error) {
-      console.error('❌ Erro ao inicializar banco:', error);
-    }
+    const setupDatabase = async () => {
+      try {
+        await initDatabase();
+        console.log('✅ Banco de dados inicializado com sucesso');
+      } catch (error) {
+        console.error('❌ Erro ao inicializar banco:', error);
+      }
+    };
+    setupDatabase();
   }, []); // Array vazio = executa só uma vez ao montar
 
   return (

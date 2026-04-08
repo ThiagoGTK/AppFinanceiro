@@ -46,10 +46,10 @@ export default function GoalsScreen() {
   // ------------------------------------------------------------
   // CARREGA AS METAS AO ABRIR A TELA
   // ------------------------------------------------------------
-  const loadGoals = useCallback(() => {
+  const loadGoals = useCallback(async () => {
     setIsLoading(true);
     try {
-      const allGoals = getAllGoals();
+      const allGoals = await getAllGoals();
       setGoals(allGoals);
     } catch (error) {
       console.error('Erro ao carregar metas:', error);
@@ -90,7 +90,7 @@ export default function GoalsScreen() {
     setIsSubmitting(true);
     try {
       // Insere na base de dados
-      insertGoal({
+      await insertGoal({
         name: goalName.trim(),
         icon: goalIcon,
         targetValue: numericTarget,
@@ -99,7 +99,7 @@ export default function GoalsScreen() {
       });
 
       // Recarrega a lista
-      loadGoals();
+      await loadGoals();
 
       // Fecha o modal e limpa o formulário
       setShowModal(false);
@@ -129,10 +129,10 @@ export default function GoalsScreen() {
         {
           text: 'Deletar',
           style: 'destructive',
-          onPress: () => {
+          onPress: async () => {
             try {
-              deleteGoal(goal.id);
-              loadGoals();
+              await deleteGoal(goal.id);
+              await loadGoals();
             } catch (error) {
               Alert.alert('Erro', 'Não foi possível deletar a meta.');
             }
