@@ -207,6 +207,33 @@ Ctrl+C  → Parar servidor
 - 🌙 **Dark Mode**: Tema escuro completo
 - 🌍 **Multi-idioma**: Suporte a múltiplos idiomas
 
+## 🍎 Publicando na App Store
+
+Para submeter seu app na App Store do iPhone:
+
+**Pré-requisitos:**
+- Conta Apple Developer ($99/ano)
+- EAS CLI instalado (`npm install -g eas-cli`)
+- Conta Expo configurada
+
+**Guia Completo:**
+👉 Veja o arquivo [APP_STORE_SETUP.md](APP_STORE_SETUP.md) para instruções detalhadas!
+
+**Resumo rápido:**
+```bash
+# 1. Login no Expo
+eas login
+
+# 2. Configurar EAS para iOS
+eas build:configure --platform ios
+
+# 3. Gerar build para App Store
+eas build --platform ios
+
+# 4. Upload para App Store Connect e submeter
+# (Veja APP_STORE_SETUP.md para instruções)
+```
+
 ## 📸 Screenshots
 
 (Você pode tirará quando rodar o app!)
