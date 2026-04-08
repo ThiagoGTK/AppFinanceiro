@@ -7,22 +7,17 @@ import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 
 // Inicialização do banco de dados
 import { initDatabase } from './src/database/database';
 
-// Hooks customizados
-import { useUser } from './src/hooks/useUser';
-
-// Telas do app
+// Telas do app (vamos criar em seguida)
 import HomeScreen from './src/screens/HomeScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 import AddScreen from './src/screens/AddScreen';
 import InsightsScreen from './src/screens/InsightsScreen';
 import GoalsScreen from './src/screens/GoalsScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
-import OnboardingScreen from './src/screens/OnboardingScreen';
 
 // ------------------------------------------------------------
 // CRIAÇÃO DO NAVEGADOR DE ABAS
@@ -32,18 +27,17 @@ const Tab = createBottomTabNavigator();
 
 // ------------------------------------------------------------
 // ÍCONES DAS ABAS
-// Função que retorna o emoji certo para cada aba
+// Função que retorna o emoji certo para cada aba e estado
 // ------------------------------------------------------------
 const tabIcon = (routeName: string, focused: boolean): string => {
-  const icons: Record<string, string> = {
-    Home:      '🏠',
-    Dashboard: '📊',
-    Add:       '⊕',
-    Insights:  '💡',
-    Goals:     '🎯',
-    Settings:  '⚙️',
+  const icons: Record<string, [string, string]> = {
+    Home:      ['🏠', '🏠'],
+    Dashboard: ['📊', '📊'],
+    Add:       ['⊕', '⊕'],
+    Insights:  ['💡', '💡'],
+    Goals:     ['🎯', '🎯'],
   };
-  return icons[routeName] ?? '●';
+  return icons[routeName]?.[focused ? 0 : 1] ?? '●';
 };
 
 // ============================================================
@@ -51,10 +45,10 @@ const tabIcon = (routeName: string, focused: boolean): string => {
 // ============================================================
 export default function App() {
 
-  // Gerencia dados do usuário (nome)
-  const { user, isLoading, setUserName, hasUser } = useUser();
-
-  // Inicializa o banco ao abrir o app
+  // ------------------------------------------------------------
+  // INICIALIZA O BANCO AO ABRIR O APP
+  // Cria as tabelas se ainda não existirem
+  // ------------------------------------------------------------
   useEffect(() => {
     try {
       initDatabase();
@@ -62,42 +56,13 @@ export default function App() {
     } catch (error) {
       console.error('❌ Erro ao inicializar banco:', error);
     }
-  }, []);
+  }, []); // Array vazio = executa só uma vez ao montar
 
-  // Enquanto carrega os dados do usuário, mostra nada
-  if (isLoading) {
-    return (
-      <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
-        <StatusBar style="light" />
-      </View>
-    );
-  }
-
-  // Se não tem usuário, mostra tela de onboarding
-  if (!hasUser) {
-    return (
-      <>
-        <StatusBar style="dark" />
-        <OnboardingScreen onUserNameSet={setUserName} />
-      </>
-    );
-  }
-
-  // Se tem usuário, mostra o app principal com navegação
   return (
     <NavigationContainer>
       <StatusBar style="light" />
-      <AppNavigator />
-    </NavigationContainer>
-  );
-}
 
-// ============================================================
-// NAVEGADOR PRINCIPAL (5 ABAS)
-// ============================================================
-function AppNavigator() {
-  return (
-    <Tab.Navigator
+      <Tab.Navigator
         screenOptions={({ route }) => ({
           // -- Ícone de cada aba
           tabBarIcon: ({ focused }) => (
@@ -123,7 +88,7 @@ function AppNavigator() {
           // -- Estilo do label
           tabBarLabelStyle: {
             fontSize: 10,
-            fontWeight: 500,
+            fontWeight: '500',
             marginTop: 2,
           },
 
@@ -169,13 +134,7 @@ function AppNavigator() {
           component={GoalsScreen}
           options={{ tabBarLabel: 'Metas' }}
         />
-
-        {/* ---- ABA: CONFIGURAÇÕES ---- */}
-        <Tab.Screen
-          name="Settings"
-          component={SettingsScreen}
-          options={{ tabBarLabel: 'Configurações' }}
-        />
       </Tab.Navigator>
-    );
-  }
+    </NavigationContainer>
+  );
+}
